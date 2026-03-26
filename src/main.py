@@ -17,3 +17,4 @@ python
 
      def testmainoutput():
          assert src.main.main() is Non
+Цей проєкт призначений для роботи з 3D‑візуалізацією та прикладами інтеграції.

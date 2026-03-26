@@ -344,3 +344,52 @@ def testcrossproduct():
 def test_midpoint():
     assert midpoint(0, 0, 0, 2, 2, 2) == (1.0, 1.0, 1.0)
     assert midpoint(1, 2, 3, 4, 5, 6) == (2.5, 3.5, 4.5)
+python
+import math
+
+def add_numbers(a, b):
+    return a + b
+
+def vector_length(x, y, z):
+    return (x2 + y2 + z2)  0.5
+
+def distancebetweenpoints(x1, y1, z1, x2, y2, z2):
+    return ((x2 - x1)2 + (y2 - y1)2 + (z2 - z1)2)  0.5
+
+def normalize_vector(x, y, z):
+    length = vector_length(x, y, z)
+    if length == 0:
+        return (0, 0, 0)
+    return (x/length, y/length, z/length)
+
+def dot_product(x1, y1, z1, x2, y2, z2):
+    return x1x2 + y1y2 + z1*z2
+
+def cross_product(x1, y1, z1, x2, y2, z2):
+    return (y1z2 - z1y2, z1x2 - x1z2, x1y2 - y1x2)
+
+def midpoint(x1, y1, z1, x2, y2, z2):
+    return ((x1 + x2)/2, (y1 + y2)/2, (z1 + z2)/2)
+
+def translate_point(x, y, z, dx, dy, dz):
+    """Перенос точки у 3D."""
+    return (x + dx, y + dy, z + dz)
+
+def scale_point(x, y, z, sx, sy, sz):
+    """Масштабування точки у 3D."""
+    return (x  sx, y  sy, z * sz)
+
+def rotatepointx(x, y, z, angle):
+    """Обертання точки навколо осі X."""
+    rad = math.radians(angle)
+    return (x, ymath.cos(rad) - zmath.sin(rad), ymath.sin(rad) + zmath.cos(rad))
+
+def rotatepointy(x, y, z, angle):
+    """Обертання точки навколо осі Y."""
+    rad = math.radians(angle)
+    return (xmath.cos(rad) + zmath.sin(rad), y, -xmath.sin(rad) + zmath.cos(rad))
+
+def rotatepointz(x, y, z, angle):
+    """Обертання точки навколо осі Z."""
+    rad = math.radians(angle)
+    return (xmath.cos(rad) - ymath.sin(rad), xmath.sin(rad) + ymath.cos(rad), z)

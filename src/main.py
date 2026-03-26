@@ -578,3 +578,12 @@ def testapplymatrix_scaling():
     m = scaling_matrix(2, 3, 4)
     p = applymatrixto_point(m, 1, 1, 1)
     assert p == (2, 3, 4)
+python
+def multiply_matrices(a, b):
+    """Множення двох матриць 4×4."""
+    result = [[0 for  in range(4)] for  in range(4)]
+    for i in range(4):
+        for j in range(4):
+            for k in range(4):
+                result[i][j] += a[i][k] * b[k][j]
+    return result

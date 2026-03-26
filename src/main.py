@@ -864,3 +864,5 @@ dependencies = [
 
 [tool.setuptools.packages.find]
 where = ["src"]
+bash
+pip install 

@@ -77,3 +77,5 @@ yaml
          - name: Run tests
            run: pytest
 !CI
+markdown
+!CI

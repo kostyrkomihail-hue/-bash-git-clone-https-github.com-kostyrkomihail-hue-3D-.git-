@@ -111,3 +111,10 @@ def testdistancebetween_points():
     assert distancebetweenpoints(0, 0, 0, 1, 0, 0) == 1
     assert distancebetweenpoints(0, 0, 0, 0, 3, 4) == 5
     assert round(distancebetweenpoints(1, 2, 3, 4, 5, 6), 5) == 5.19615
+python
+def normalize_vector(x, y, z):
+    """Повертає нормалізований 3D-вектор (довжина = 1)."""
+    length = (x2 + y2 + z2)  0.5
+    if length == 0:
+        return (0, 0, 0)
+    return (x/length, y/length, z/length)

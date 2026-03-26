@@ -264,3 +264,38 @@ def testcrossproduct():
 def test_midpoint():
     assert midpoint(0, 0, 0, 2, 2, 2) == (1.0, 1.0, 1.0)
     assert midpoint(1, 2, 3, 4, 5, 6) == (2.5, 3.5, 4.5)
+python
+def add_numbers(a, b):
+    """Проста функція додавання."""
+    return a + b
+
+def vector_length(x, y, z):
+    """Обчислює довжину 3D-вектора."""
+    return (x2 + y2 + z2)  0.5
+
+def distancebetweenpoints(x1, y1, z1, x2, y2, z2):
+    """Обчислює відстань між двома точками у 3D."""
+    return ((x2 - x1)2 + (y2 - y1)2 + (z2 - z1)2)  0.5
+
+def normalize_vector(x, y, z):
+    """Повертає нормалізований 3D-вектор (довжина = 1)."""
+    length = (x2 + y2 + z2)  0.5
+    if length == 0:
+        return (0, 0, 0)
+    return (x/length, y/length, z/length)
+
+def dot_product(x1, y1, z1, x2, y2, z2):
+    """Обчислює скалярний добуток двох 3D-векторів."""
+    return x1x2 + y1y2 + z1*z2
+
+def cross_product(x1, y1, z1, x2, y2, z2):
+    """Обчислює векторний (крос) добуток двох 3D-векторів."""
+    return (
+        y1z2 - z1y2,
+        z1x2 - x1z2,
+        x1y2 - y1x2
+    )
+
+def midpoint(x1, y1, z1, x2, y2, z2):
+    """Обчислює середню точку між двома точками у 3D."""
+    return ((x1 + x2)/2, (y1 + y2)/2, (z1 + z2)/2)

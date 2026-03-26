@@ -607,3 +607,43 @@ def testmultiplyscaling_translation():
     p = applymatrixto_point(m, 1, 1, 1)
     # Спочатку масштабування (2,2,2), потім перенесення (+1,+1,+1)
     assert p == (3, 3, 3)
+python
+def lookatmatrix(eye, target, up):
+    """View-матриця: камера дивиться з eye на target."""
+    import numpy as np
+
+    eye = np.array(eye)
+    target = np.array(target)
+    up = np.array(up)
+
+    zaxis = (eye - target)
+    zaxis = zaxis / np.linalg.norm(zaxis)
+
+    xaxis = np.cross(up, zaxis)
+    xaxis = xaxis / np.linalg.norm(xaxis)
+
+    yaxis = np.cross(zaxis, xaxis)
+
+    tx = -np.dot(xaxis, eye)
+    ty = -np.dot(yaxis, eye)
+    tz = -np.dot(zaxis, eye)
+
+    return [
+        [xaxis[0], xaxis[1], xaxis[2], tx],
+        [yaxis[0], yaxis[1], yaxis[2], ty],
+        [zaxis[0], zaxis[1], zaxis[2], tz],
+        [0,        0,        0,        1]
+    ]
+
+def perspective_matrix(fov, aspect, near, far):
+    """Projection-матриця: перспектива."""
+    import math
+    f = 1 / math.tan(math.radians(fov) / 2)
+    nf = 1 / (near - far)
+
+    return [
+        [f / aspect, 0, 0, 0],
+        [0, f, 0, 0],
+        [0, 0, (far + near)  nf, 2  far  near  nf],
+        [0, 0, -1, 0]
+    ]

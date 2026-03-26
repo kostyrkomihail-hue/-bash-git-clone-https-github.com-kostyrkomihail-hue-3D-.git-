@@ -545,3 +545,16 @@ def main():
 
 if name == "main":
     main()
+python
+def applymatrixto_point(matrix, x, y, z):
+    """Застосовує матрицю 4×4 до точки (x, y, z)."""
+    # Перетворюємо точку у вектор-стовпець (x, y, z, 1)
+    point = [x, y, z, 1]
+    result = [0, 0, 0, 0]
+
+    for i in range(4):
+        for j in range(4):
+            result[i] += matrix[i][j] * point[j]
+
+    # Повертаємо тільки перші три координати (x, y, z)
+    return (result[0], result[1], result[2])

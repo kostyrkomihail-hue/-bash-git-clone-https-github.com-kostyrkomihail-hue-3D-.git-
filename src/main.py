@@ -40,3 +40,21 @@ MIT License
        version="0.1",
        packages=find_packages(),
    )
+yaml
+   name: Python application
+
+   on: [push]
+
+   jobs:
+     build:
+       runs-on: ubuntu-latest
+       steps:
+         - uses: actions/checkout@v3
+         - name: Set up Python
+           uses: actions/setup-python@v4
+           with:
+             python-version: '3.x'
+         - name: Install dependencies
+           run: pip install -r requirements.txt
+         - name: Run tests
+           run: pytest

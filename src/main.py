@@ -118,3 +118,12 @@ def normalize_vector(x, y, z):
     if length == 0:
         return (0, 0, 0)
     return (x/length, y/length, z/length)
+У tests/test_main.py
+`python
+from src.main import normalize_vector
+
+def testnormalizevector():
+    assert normalize_vector(1, 0, 0) == (1.0, 0.0, 0.0)
+    assert normalize_vector(0, 3, 4) == (0.0, 0.6, 0.8)
+    nx, ny, nz = normalize_vector(1, 2, 2)
+    assert round((nx2 + ny2 + nz2), 5) == 1.0

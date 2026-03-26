@@ -728,3 +728,55 @@ def transformpointviewprojection(point, viewmatrix, projection_matrix):
     """Перетворює точку через view + projection."""
     vpmatrix = multiplymatrices(projectionmatrix, viewmatrix)
     return applymatrixtopoint(vpmatrix, *point)
+python
+from src.matrix import (
+    identitymatrix, translationmatrix, scaling_matrix,
+    applymatrixtopoint, multiplymatrices,
+    lookatmatrix, perspective_matrix,
+    transformpointview_projection
+)
+
+def testapplymatrix_identity():
+    m = identity_matrix()
+    p = applymatrixto_point(m, 1, 2, 3)
+    assert p == (1, 2, 3)
+
+def testapplymatrix_translation():
+    m = translation_matrix(1, 2, 3)
+    p = applymatrixto_point(m, 1, 1, 1)
+    assert p == (2, 3, 4)
+
+def testapplymatrix_scaling():
+    m = scaling_matrix(2, 3, 4)
+    p = applymatrixto_point(m, 1, 1, 1)
+    assert p == (2, 3, 4)
+
+def testmultiplyidentity():
+    a = identity_matrix()
+    b = translation_matrix(1, 2, 3)
+    m = multiply_matrices(a, b)
+    p = applymatrixto_point(m, 1, 1, 1)
+    assert p == (2, 3, 4)
+
+def testmultiplyscaling_translation():
+    s = scaling_matrix(2, 2, 2)
+    t = translation_matrix(1, 1, 1)
+    m = multiply_matrices(s, t)
+    p = applymatrixto_point(m, 1, 1, 1)
+    assert p == (3, 3, 3)
+
+def testlookat_matrix():
+    m = lookatmatrix([0, 0, 5], [0, 0, 0], [0, 1, 0])
+    assert round(m[2][2], 5) == 1.0
+
+def testperspectivematrix():
+    m = perspective_matrix(90, 1.0, 1.0, 10.0)
+    assert round(m[0][0], 5) > 1.0
+    assert m[3][2] == -1
+
+def testtransformpointviewprojection():
+    eye, target, up = [0, 0, 5], [0, 0, 0], [0, 1, 0]
+    view = lookatmatrix(eye, target, up)
+    proj = perspective_matrix(90, 1.0, 1.0, 10.0)
+    p = transformpointview_projection([0, 0, 0], view, proj)
+    assert p[2] < 0

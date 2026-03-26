@@ -472,3 +472,33 @@ markdown
   - rotationmatrixx(angle) — матриця обертання навколо X
   - rotationmatrixy(angle) — матриця обертання навколо Y
   - rotationmatrixz(angle) — матриця обертання навколо Z
+python
+from src.main import (
+    vectorlength, normalizevector, dot_product,
+    crossproduct, midpoint, translatepoint,
+    scalepoint, rotatepoint_x
+)
+
+Довжина вектора
+length = vector_length(1, 2, 2)  # → 3.0
+
+Нормалізація
+nx, ny, nz = normalize_vector(0, 3, 4)  # → (0.0, 0.6, 0.8)
+
+Скалярний добуток
+dp = dot_product(1, 2, 3, 4, 5, 6)  # → 32
+
+Векторний добуток
+cp = cross_product(1, 0, 0, 0, 1, 0)  # → (0, 0, 1)
+
+Середня точка
+mid = midpoint(0, 0, 0, 2, 2, 2)  # → (1.0, 1.0, 1.0)
+
+Перенесення точки
+moved = translate_point(1, 2, 3, 1, 1, 1)  # → (2, 3, 4)
+
+Масштабування
+scaled = scale_point(1, 2, 3, 2, 2, 2)  # → (2, 4, 6)
+
+Обертання навколо X
+rotated = rotatepointx(0, 1, 0, 90)  # → (0, 0.0, 1.0)

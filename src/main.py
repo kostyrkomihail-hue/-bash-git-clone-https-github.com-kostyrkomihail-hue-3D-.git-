@@ -558,3 +558,23 @@ def applymatrixto_point(matrix, x, y, z):
 
     # Повертаємо тільки перші три координати (x, y, z)
     return (result[0], result[1], result[2])
+python
+from src.matrix import (
+    identitymatrix, translationmatrix, scaling_matrix,
+    applymatrixto_point
+)
+
+def testapplymatrix_identity():
+    m = identity_matrix()
+    p = applymatrixto_point(m, 1, 2, 3)
+    assert p == (1, 2, 3)
+
+def testapplymatrix_translation():
+    m = translation_matrix(1, 2, 3)
+    p = applymatrixto_point(m, 1, 1, 1)
+    assert p == (2, 3, 4)
+
+def testapplymatrix_scaling():
+    m = scaling_matrix(2, 3, 4)
+    p = applymatrixto_point(m, 1, 1, 1)
+    assert p == (2, 3, 4)

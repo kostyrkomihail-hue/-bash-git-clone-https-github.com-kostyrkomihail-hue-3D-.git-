@@ -832,6 +832,26 @@ def testtransformpointviewprojection():
   - “Приклади використання”
   - “Архітектура трансформацій”
 - [x] Код‑сніпети перевірені й працюють
+toml
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "vector-math-lib"
+version = "1.0.0"
+description = "Бібліотека для роботи з векторами, точками та матрицями трансформацій у 3D"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [
+    {name = "Твоє ім’я", email = "you@example.com"}
+]
+dependencies = [
+    "numpy>=1.24",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
 
 3. CI/CD
 - [x] Налаштований GitHub Actions для запуску pytest

@@ -299,3 +299,48 @@ def cross_product(x1, y1, z1, x2, y2, z2):
 def midpoint(x1, y1, z1, x2, y2, z2):
     """Обчислює середню точку між двома точками у 3D."""
     return ((x1 + x2)/2, (y1 + y2)/2, (z1 + z2)/2)
+python
+from src.main import (
+    add_numbers,
+    vector_length,
+    distancebetweenpoints,
+    normalize_vector,
+    dot_product,
+    cross_product,
+    midpoint
+)
+
+def testaddnumbers():
+    assert add_numbers(2, 3) == 5
+    assert add_numbers(-1, 1) == 0
+    assert add_numbers(0, 0) == 0
+
+def testvectorlength():
+    assert vector_length(1, 0, 0) == 1
+    assert vector_length(0, 3, 4) == 5
+    assert round(vector_length(1, 2, 2), 5) == 3.0
+
+def testdistancebetween_points():
+    assert distancebetweenpoints(0, 0, 0, 1, 0, 0) == 1
+    assert distancebetweenpoints(0, 0, 0, 0, 3, 4) == 5
+    assert round(distancebetweenpoints(1, 2, 3, 4, 5, 6), 5) == 5.19615
+
+def testnormalizevector():
+    assert normalize_vector(1, 0, 0) == (1.0, 0.0, 0.0)
+    assert normalize_vector(0, 3, 4) == (0.0, 0.6, 0.8)
+    nx, ny, nz = normalize_vector(1, 2, 2)
+    assert round((nx2 + ny2 + nz2), 5) == 1.0
+
+def testdotproduct():
+    assert dot_product(1, 0, 0, 1, 0, 0) == 1
+    assert dot_product(1, 2, 3, 4, 5, 6) == 32
+    assert dot_product(0, 0, 0, 1, 2, 3) == 0
+
+def testcrossproduct():
+    assert cross_product(1, 0, 0, 0, 1, 0) == (0, 0, 1)
+    assert cross_product(0, 1, 0, 0, 0, 1) == (1, 0, 0)
+    assert cross_product(1, 2, 3, 4, 5, 6) == (-3, 6, -3)
+
+def test_midpoint():
+    assert midpoint(0, 0, 0, 2, 2, 2) == (1.0, 1.0, 1.0)
+    assert midpoint(1, 2, 3, 4, 5, 6) == (2.5, 3.5, 4.5)

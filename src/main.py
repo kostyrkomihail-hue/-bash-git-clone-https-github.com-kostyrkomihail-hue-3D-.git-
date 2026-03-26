@@ -32,4 +32,11 @@ MIT License
    Permission is hereby granted, free of charge, to any person obtaining a copy
    of this software and associated documentation files (the "Software"), to deal
    in the Software without restriction...
-   `  
+   python
+   from setuptools import setup, find_packages
+
+   setup(
+       name="3D-project",
+       version="0.1",
+       packages=find_packages(),
+   )

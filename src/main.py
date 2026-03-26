@@ -104,3 +104,10 @@ python
 def distancebetweenpoints(x1, y1, z1, x2, y2, z2):
     """Обчислює відстань між двома точками у 3D."""
     return ((x2 - x1)2 + (y2 - y1)2 + (z2 - z1)2)  0.5
+python
+from src.main import distancebetweenpoints
+
+def testdistancebetween_points():
+    assert distancebetweenpoints(0, 0, 0, 1, 0, 0) == 1
+    assert distancebetweenpoints(0, 0, 0, 0, 3, 4) == 5
+    assert round(distancebetweenpoints(1, 2, 3, 4, 5, 6), 5) == 5.19615

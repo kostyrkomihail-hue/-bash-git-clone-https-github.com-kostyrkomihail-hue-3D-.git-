@@ -502,3 +502,46 @@ scaled = scale_point(1, 2, 3, 2, 2, 2)  # → (2, 4, 6)
 
 Обертання навколо X
 rotated = rotatepointx(0, 1, 0, 90)  # → (0, 0.0, 1.0)
+python
+from src.main import (
+    addnumbers, vectorlength, distancebetweenpoints,
+    normalizevector, dotproduct, cross_product, midpoint,
+    translatepoint, scalepoint,
+    rotatepointx, rotatepointy, rotatepointz
+)
+from src.matrix import (
+    identitymatrix, translationmatrix, scaling_matrix,
+    rotationmatrixx, rotationmatrixy, rotationmatrixz
+)
+
+def main():
+    print("=== Арифметика ===")
+    print("2 + 3 =", add_numbers(2, 3))
+
+    print("\n=== Вектори ===")
+    print("Довжина (1,2,2):", vector_length(1, 2, 2))
+    print("Нормалізація (0,3,4):", normalize_vector(0, 3, 4))
+    print("Dot product (1,2,3)·(4,5,6):", dot_product(1, 2, 3, 4, 5, 6))
+    print("Cross product (1,0,0)×(0,1,0):", cross_product(1, 0, 0, 0, 1, 0))
+
+    print("\n=== Геометрія ===")
+    print("Відстань між (0,0,0) і (0,3,4):", distancebetweenpoints(0, 0, 0, 0, 3, 4))
+    print("Середня точка між (0,0,0) і (2,2,2):", midpoint(0, 0, 0, 2, 2, 2))
+
+    print("\n=== Перетворення точок ===")
+    print("Перенесення (1,2,3) на (1,1,1):", translate_point(1, 2, 3, 1, 1, 1))
+    print("Масштабування (1,2,3) × (2,2,2):", scale_point(1, 2, 3, 2, 2, 2))
+    print("Обертання (0,1,0) навколо X на 90°:", rotatepointx(0, 1, 0, 90))
+    print("Обертання (1,0,0) навколо Y на 90°:", rotatepointy(1, 0, 0, 90))
+    print("Обертання (1,0,0) навколо Z на 90°:", rotatepointz(1, 0, 0, 90))
+
+    print("\n=== Матриці трансформацій ===")
+    print("Одинична матриця:", identity_matrix())
+    print("Матриця переносу (1,2,3):", translation_matrix(1, 2, 3))
+    print("Матриця масштабування (2,3,4):", scaling_matrix(2, 3, 4))
+    print("Матриця обертання X (90°):", rotationmatrixx(90))
+    print("Матриця обертання Y (90°):", rotationmatrixy(90))
+    print("Матриця обертання Z (90°):", rotationmatrixz(90))
+
+if name == "main":
+    main()

@@ -100,3 +100,7 @@ def testvectorlength():
     assert vector_length(1, 0, 0) == 1
     assert vector_length(0, 3, 4) == 5
     assert round(vector_length(1, 2, 2), 5) == 3.0
+python
+def distancebetweenpoints(x1, y1, z1, x2, y2, z2):
+    """Обчислює відстань між двома точками у 3D."""
+    return ((x2 - x1)2 + (y2 - y1)2 + (z2 - z1)2)  0.5

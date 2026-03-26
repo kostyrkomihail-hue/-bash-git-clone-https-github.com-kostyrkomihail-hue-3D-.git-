@@ -21,3 +21,7 @@ python
 python
      from src.main import main
 # Тут будуть залежності проєкту
+pycache/
+     *.pyc
+     .DS_Store
+     venv/

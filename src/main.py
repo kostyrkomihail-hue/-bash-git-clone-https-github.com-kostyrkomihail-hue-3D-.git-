@@ -647,3 +647,14 @@ def perspective_matrix(fov, aspect, near, far):
         [0, 0, (far + near)  nf, 2  far  near  nf],
         [0, 0, -1, 0]
     ]
+python
+from src.matrix import lookatmatrix, perspective_matrix
+
+def testlookat_matrix():
+    m = lookatmatrix([0, 0, 5], [0, 0, 0], [0, 1, 0])
+    assert round(m[2][2], 5) == 1.0  # камера дивиться вздовж Z
+
+def testperspectivematrix():
+    m = perspective_matrix(90, 1.0, 1.0, 10.0)
+    assert round(m[0][0], 5) > 1.0
+    assert m[3][2] == -1

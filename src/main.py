@@ -79,3 +79,6 @@ yaml
 !CI
 markdown
 !CI
+python
+def add_numbers(a, b):
+    return a + b

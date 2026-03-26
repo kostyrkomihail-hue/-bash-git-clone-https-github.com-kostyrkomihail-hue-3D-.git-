@@ -127,3 +127,26 @@ def testnormalizevector():
     assert normalize_vector(0, 3, 4) == (0.0, 0.6, 0.8)
     nx, ny, nz = normalize_vector(1, 2, 2)
     assert round((nx2 + ny2 + nz2), 5) == 1.0
+python
+def add_numbers(a, b):
+    """Проста функція додавання."""
+    return a + b
+
+def vector_length(x, y, z):
+    """Обчислює довжину 3D-вектора."""
+    return (x2 + y2 + z2)  0.5
+
+def distancebetweenpoints(x1, y1, z1, x2, y2, z2):
+    """Обчислює відстань між двома точками у 3D."""
+    return ((x2 - x1)2 + (y2 - y1)2 + (z2 - z1)2)  0.5
+
+def normalize_vector(x, y, z):
+    """Повертає нормалізований 3D-вектор (довжина = 1)."""
+    length = (x2 + y2 + z2)  0.5
+    if length == 0:
+        return (0, 0, 0)
+    return (x/length, y/length, z/length)
+
+def dot_product(x1, y1, z1, x2, y2, z2):
+    """Обчислює скалярний добуток двох 3D-векторів."""
+    return x1x2 + y1y2 + z1*z2

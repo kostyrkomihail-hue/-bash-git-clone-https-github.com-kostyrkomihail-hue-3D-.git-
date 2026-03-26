@@ -393,3 +393,49 @@ def rotatepointz(x, y, z, angle):
     """Обертання точки навколо осі Z."""
     rad = math.radians(angle)
     return (xmath.cos(rad) - ymath.sin(rad), xmath.sin(rad) + ymath.cos(rad), z)
+python
+from src.main import (
+    addnumbers, vectorlength, distancebetweenpoints,
+    normalizevector, dotproduct, cross_product, midpoint,
+    translatepoint, scalepoint,
+    rotatepointx, rotatepointy, rotatepointz
+)
+
+def testaddnumbers():
+    assert add_numbers(2, 3) == 5
+
+def testvectorlength():
+    assert vector_length(0, 3, 4) == 5
+
+def testdistancebetween_points():
+    assert distancebetweenpoints(0, 0, 0, 0, 3, 4) == 5
+
+def testnormalizevector():
+    assert normalize_vector(0, 3, 4) == (0.0, 0.6, 0.8)
+
+def testdotproduct():
+    assert dot_product(1, 2, 3, 4, 5, 6) == 32
+
+def testcrossproduct():
+    assert cross_product(1, 0, 0, 0, 1, 0) == (0, 0, 1)
+
+def test_midpoint():
+    assert midpoint(0, 0, 0, 2, 2, 2) == (1.0, 1.0, 1.0)
+
+def testtranslatepoint():
+    assert translate_point(1, 2, 3, 1, 1, 1) == (2, 3, 4)
+
+def testscalepoint():
+    assert scale_point(1, 2, 3, 2, 2, 2) == (2, 4, 6)
+
+def testrotatepoint_x():
+    rx = rotatepointx(0, 1, 0, 90)
+    assert round(rx[1], 5) == 0.0 and round(rx[2], 5) == 1.0
+
+def testrotatepoint_y():
+    ry = rotatepointy(1, 0, 0, 90)
+    assert round(ry[0], 5) == 0.0 and round(ry[2], 5) == -1.0
+
+def testrotatepoint_z():
+    rz = rotatepointz(1, 0, 0, 90)
+    assert round(rz[0], 5) == 0.0 and round(rz[1], 5) == 1.0

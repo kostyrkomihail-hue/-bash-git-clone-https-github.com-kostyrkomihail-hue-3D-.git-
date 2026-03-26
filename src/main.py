@@ -844,3 +844,23 @@ where = ["src"]
 - [ ] Створити тег (v1.0.0)
 - [ ] Згенерувати GitHub Release
 - [ ] (Опціонально) Завантажити на PyPI
+toml
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "vector-math-lib"
+version = "1.0.0"
+description = "Бібліотека для роботи з векторами, точками та матрицями трансформацій у 3D"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [
+    {name = "Твоє ім’я", email = "you@example.com"}
+]
+dependencies = [
+    "numpy>=1.24",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]

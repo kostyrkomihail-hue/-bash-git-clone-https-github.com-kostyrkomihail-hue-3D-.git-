@@ -89,3 +89,7 @@ def testaddnumbers():
     assert add_numbers(2, 3) == 5
     assert add_numbers(-1, 1) == 0
     assert add_numbers(0, 0) == 0
+python
+def vector_length(x, y, z):
+    """Обчислює довжину 3D-вектора."""
+    return (x2 + y2 + z2)  0.5

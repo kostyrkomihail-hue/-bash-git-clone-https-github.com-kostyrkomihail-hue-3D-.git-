@@ -93,3 +93,10 @@ python
 def vector_length(x, y, z):
     """Обчислює довжину 3D-вектора."""
     return (x2 + y2 + z2)  0.5
+python
+from src.main import vector_length
+
+def testvectorlength():
+    assert vector_length(1, 0, 0) == 1
+    assert vector_length(0, 3, 4) == 5
+    assert round(vector_length(1, 2, 2), 5) == 3.0

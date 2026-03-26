@@ -587,3 +587,23 @@ def multiply_matrices(a, b):
             for k in range(4):
                 result[i][j] += a[i][k] * b[k][j]
     return result
+python
+from src.matrix import (
+    identitymatrix, translationmatrix, scaling_matrix,
+    multiplymatrices, applymatrixtopoint
+)
+
+def testmultiplyidentity():
+    a = identity_matrix()
+    b = translation_matrix(1, 2, 3)
+    m = multiply_matrices(a, b)
+    p = applymatrixto_point(m, 1, 1, 1)
+    assert p == (2, 3, 4)
+
+def testmultiplyscaling_translation():
+    s = scaling_matrix(2, 2, 2)
+    t = translation_matrix(1, 1, 1)
+    m = multiply_matrices(s, t)
+    p = applymatrixto_point(m, 1, 1, 1)
+    # Спочатку масштабування (2,2,2), потім перенесення (+1,+1,+1)
+    assert p == (3, 3, 3)

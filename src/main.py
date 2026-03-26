@@ -82,3 +82,10 @@ markdown
 python
 def add_numbers(a, b):
     return a + b
+python
+from src.main import add_numbers
+
+def testaddnumbers():
+    assert add_numbers(2, 3) == 5
+    assert add_numbers(-1, 1) == 0
+    assert add_numbers(0, 0) == 0

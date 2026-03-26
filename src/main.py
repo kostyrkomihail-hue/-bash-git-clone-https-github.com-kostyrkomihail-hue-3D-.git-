@@ -866,3 +866,53 @@ dependencies = [
 where = ["src"]
 bash
 pip install 
+python
+def applymatrixto_point(matrix, x, y, z):
+    """Застосовує матрицю 4×4 до точки (x, y, z)."""
+    point = [x, y, z, 1]
+    result = [0, 0, 0, 0]
+    for i in range(4):
+        for j in range(4):
+            result[i] += matrix[i][j] * point[j]
+    return (result[0], result[1], result[2])
+
+def multiply_matrices(a, b):
+    """Множення двох матриць 4×4."""
+    result = [[0 for  in range(4)] for  in range(4)]
+    for i in range(4):
+        for j in range(4):
+            for k in range(4):
+                result[i][j] += a[i][k] * b[k][j]
+    return result
+
+def lookatmatrix(eye, target, up):
+    """View-матриця: камера дивиться з eye на target."""
+    import numpy as np
+    eye, target, up = map(np.array, (eye, target, up))
+    zaxis = (eye - target) / np.linalg.norm(eye - target)
+    xaxis = np.cross(up, zaxis) / np.linalg.norm(np.cross(up, zaxis))
+    yaxis = np.cross(zaxis, xaxis)
+    tx, ty, tz = -np.dot(xaxis, eye), -np.dot(yaxis, eye), -np.dot(zaxis, eye)
+    return [
+        [xaxis[0], xaxis[1], xaxis[2], tx],
+        [yaxis[0], yaxis[1], yaxis[2], ty],
+        [zaxis[0], zaxis[1], zaxis[2], tz],
+        [0, 0, 0, 1]
+    ]
+
+def perspective_matrix(fov, aspect, near, far):
+    """Projection-матриця: перспектива."""
+    import math
+    f = 1 / math.tan(math.radians(fov) / 2)
+    nf = 1 / (near - far)
+    return [
+        [f / aspect, 0, 0, 0],
+        [0, f, 0, 0],
+        [0, 0, (far + near)  nf, 2  far  near  nf],
+        [0, 0, -1, 0]
+    ]
+
+def transformpointviewprojection(point, viewmatrix, projection_matrix):
+    """Перетворює точку через view + projection."""
+    vpmatrix = multiplymatrices(projectionmatrix, viewmatrix)
+    return applymatrixtopoint(vpmatrix, *point)

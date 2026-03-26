@@ -780,3 +780,25 @@ def testtransformpointviewprojection():
     proj = perspective_matrix(90, 1.0, 1.0, 10.0)
     p = transformpointview_projection([0, 0, 0], view, proj)
     assert p[2] < 0
+1. Світова координата  
+   → точка у глобальному просторі: (x, y, z)
+
+2. View‑матриця  
+   → lookatmatrix(eye, target, up)  
+   → перетворює світову точку у координати камери
+
+3. Projection‑матриця  
+   → perspective_matrix(fov, aspect, near, far)  
+   → додає перспективу: ближче — більше, далі — менше
+
+4. Композиція  
+   → multiply_matrices(projection, view)  
+   → об’єднує обидві матриці в одну
+
+5. Застосування  
+   → applymatrixto_point(matrix, x, y, z)  
+   → повертає точку у вигляді, готовому для рендерингу
+
+6. Фінальне перетворення  
+   → transformpointview_projection(point, view, projection)  
+   → одна функція, яка виконує весь шлях

@@ -439,3 +439,36 @@ def testrotatepoint_y():
 def testrotatepoint_z():
     rz = rotatepointz(1, 0, 0, 90)
     assert round(rz[0], 5) == 0.0 and round(rz[1], 5) == 1.0
+markdown
+
+Можливості бібліотеки
+
+Ця бібліотека містить набір базових 3D‑математичних функцій:
+
+- Арифметика
+  - add_numbers(a, b) — проста функція додавання
+
+- Вектори
+  - vector_length(x, y, z) — довжина 3D‑вектора
+  - normalize_vector(x, y, z) — нормалізація вектора (довжина = 1)
+  - dot_product(x1, y1, z1, x2, y2, z2) — скалярний добуток
+  - cross_product(x1, y1, z1, x2, y2, z2) — векторний добуток
+
+- Геометрія
+  - distancebetweenpoints(x1, y1, z1, x2, y2, z2) — відстань між точками
+  - midpoint(x1, y1, z1, x2, y2, z2) — середня точка
+
+- Перетворення точок
+  - translate_point(x, y, z, dx, dy, dz) — перенесення
+  - scale_point(x, y, z, sx, sy, sz) — масштабування
+  - rotatepointx(x, y, z, angle) — обертання навколо осі X
+  - rotatepointy(x, y, z, angle) — обертання навколо осі Y
+  - rotatepointz(x, y, z, angle) — обертання навколо осі Z
+
+- Матриці трансформацій (4×4)
+  - identity_matrix() — одинична матриця
+  - translation_matrix(dx, dy, dz) — матриця переносу
+  - scaling_matrix(sx, sy, sz) — матриця масштабування
+  - rotationmatrixx(angle) — матриця обертання навколо X
+  - rotationmatrixy(angle) — матриця обертання навколо Y
+  - rotationmatrixz(angle) — матриця обертання навколо Z

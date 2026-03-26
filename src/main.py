@@ -663,3 +663,18 @@ def transformpointviewprojection(point, viewmatrix, projection_matrix):
     """Перетворює точку через view + projection."""
     vpmatrix = multiplymatrices(projectionmatrix, viewmatrix)
     return applymatrixtopoint(vpmatrix, *point)
+python
+from src.matrix import (
+    lookatmatrix, perspective_matrix,
+    transformpointview_projection
+)
+
+def testtransformpointviewprojection():
+    eye = [0, 0, 5]
+    target = [0, 0, 0]
+    up = [0, 1, 0]
+    view = lookatmatrix(eye, target, up)
+    proj = perspective_matrix(90, 1.0, 1.0, 10.0)
+    p = transformpointview_projection([0, 0, 0], view, proj)
+    # Точка (0,0,0) має бути попереду камери, отже z < 0
+    assert p[2] < 0

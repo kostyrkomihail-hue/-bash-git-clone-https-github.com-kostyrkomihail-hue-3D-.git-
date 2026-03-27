@@ -1026,3 +1026,8 @@ jobs:
            
     - name: Run tests
       run: pytest
+def main():
+    print("Програма працює!")
+
+if name == "main":
+    main()

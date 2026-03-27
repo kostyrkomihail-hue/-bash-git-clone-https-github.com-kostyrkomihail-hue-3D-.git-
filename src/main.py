@@ -1023,8 +1023,6 @@ jobs:
         python -m pip install --upgrade pip
         pip install -e .
         pip install pytest
-bash
-     git tag v1.0.0
-     git push origin v1.0.0
+           
     - name: Run tests
       run: pytest
